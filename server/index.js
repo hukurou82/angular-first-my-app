@@ -1,4 +1,13 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const config = require("./config/dev");
+
+mongoose.connect(config.DB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+});
 
 const app = express();
 
@@ -11,3 +20,5 @@ const PORT = process.env.PORT || "3001";
 app.listen(PORT, function () {
   console.log("サーバー立ち上げ");
 });
+
+//
